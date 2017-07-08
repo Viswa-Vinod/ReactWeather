@@ -24,4 +24,4 @@ var About = () => {
 		);
 }
 
-module.exports = About;
+module.exports = About; 
