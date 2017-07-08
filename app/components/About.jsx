@@ -20,7 +20,10 @@ var React = require('react');
 //simplify further withn arrow functions
 var About = () => {
 	return (
-			<h3>About Component </h3>
+			<div>
+				<h3>About</h3>
+				<p>Details About this app</p>
+			</div>
 		);
 }
 
