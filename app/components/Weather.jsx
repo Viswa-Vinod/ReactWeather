@@ -14,7 +14,9 @@ var Weather = React.createClass({
 		
 		this.setState({
 			isLoading: true,
-			errorMsg: undefined //required for modal
+			errorMsg: undefined, //required for modal
+			place: undefined, //to prevent old data from lingering 
+			temp: undefined //to prevent old data from lingering
 		});
 
 
@@ -33,6 +35,24 @@ var Weather = React.createClass({
 			});			
 		})
 		
+	},
+	componentDidMount: function() {
+		var place = this.props.location.query.location; //we are using location as the key name in the url
+		if (place && place.length>0) {
+			this.handleSearch(place);
+			window.location.hash='#/';//resets the url to home page by removing
+			// the location query param once it has been extracted 
+			//in the previous steps; this is simply programmatic navigation
+		}
+	},
+	componentWillReceiveProps: function(newProps){
+		var place = newProps.location.query.location; //we are using location as the key name in the url
+		if (place && place.length>0) {
+			this.handleSearch(place);
+			window.location.hash='#/';//resets the url to home page by removing
+			// the location query param once it has been extracted 
+			//in the previous steps
+		}
 	},
 	render: function() {
 		var {isLoading, place, temp, errorMsg} = this.state;
