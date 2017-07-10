@@ -41,7 +41,7 @@ module.exports = {
 			Examples: 'app/components/Examples.jsx',
 			openWeatherMap: 'app/api/openWeatherMaps.jsx',
 			ErrorModal: 'app/components/ErrorModal.jsx',
-			applicationStyles: 'app/styles/app.css'
+			applicationStyles: 'app/styles/app.scss'
 		},
 		extensions: ['','.js','.jsx'] // you can now require('file') instead of require('file.js')
 	},
