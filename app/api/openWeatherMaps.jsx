@@ -15,13 +15,15 @@ module.exports = {
 		return axios.get(requestUrl).then(function(res){
 			
 			if (res.data.cod && res.data.message){
-				throw new Error('Unable to fetch error for the city')
+				console.log('made connection: ',res.data.message);
+				console.log('made connection: ', res.data.cod);
+				throw new Error(res.data.message);
 			} else {
 				return res.data.main.temp;
 			}
 		}, function(err){
-			
-			throw new Error(err.response.data.message);
+			console.log('connection itself could not be made')
+			throw new Error('Unable to fetch weather for that location');
 		})
 	}
 }
