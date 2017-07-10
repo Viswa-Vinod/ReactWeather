@@ -21,6 +21,9 @@ var Examples = require('Examples');
 //The css! loader will run first and then style! will execute.
 require('style!css!foundation-sites/dist/foundation.min.css');
 
+//app css; applicationStyles is an alias. Check webpack.config.js.
+require('style!css!applicationStyles');
+
 $(document).foundation();
 
 ReactDOM.render(
